@@ -75,11 +75,12 @@
         for(var j=0; j<len; j++){
           var name = repoObject.models[j].get('name');
           var forks = repoObject.models[j].get('forks_count');
+          var created_date = new Date(repoObject.models[j].get('created_at')); // API gives a  timestamp in ISO 8601 format
           var comment = "";
           if(name == "sg-tpie"){
             comment = " - (I totally forked this!)";
           }
-          $('#repolist').append("<li>" + name + " - Forks: " + forks + comment +"</li>");
+          $('#repolist').append("<li>" + name + " - Forks: " + forks + comment +" - Created on: "+ created_date.toDateString() +"</li>");
         }
       }   
 
